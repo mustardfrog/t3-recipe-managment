@@ -16,8 +16,8 @@ function SearchBar() {
 }
 
 export default function ShowRecipe() {
-
   // <div className="bg-[url('https://hips.hearstapps.com/hmg-prod/images/20191011-creamy-tuscan-chicken-delish-ehg-2518-1571259200.jpg')] bg-no-repeat bg-cover h-screen bg-fixed ">
+
   return (
     <div className="font-poppins">
       <Head key={1}>
@@ -33,9 +33,12 @@ export default function ShowRecipe() {
       <SearchBar />
 
       <div className="flex justify-center ">
-      <Button className="p-8 text-xl text-black bg-pink-50 border border-pink-200 hover:bg-pink-100">
-        Add A Recipe
-      </Button>
+      <Link href='/new'>
+        <Button className="p-8 text-xl text-black bg-pink-50 border border-pink-200 hover:bg-pink-100">
+          Add A Recipe
+        </Button>
+        </Link>
+
       </div>
 
       <h1 className="text-3xl text-red-500 p-5">Your Recipes...</h1>
