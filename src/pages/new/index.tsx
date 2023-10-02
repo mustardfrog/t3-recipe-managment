@@ -40,7 +40,6 @@ const recipeDetailSchema = z.object({
   })
 })
 
-
 export default function New() {
 
   const createRecipe = api.recipe.createRecipe.useMutation();
@@ -57,6 +56,7 @@ export default function New() {
       desc: "",
     },
   })
+  
   const detail = useForm<z.infer<typeof recipeDetailSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -84,10 +84,12 @@ export default function New() {
         <h1>Back to Home</h1>
       </Link>
 
-      <div className=' flex justify-center w-2/3'>
+      <div className='flex justify-center w-2/3'>
 
         <Form {...form} >
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          
+           {/* Recipe title */}
             <FormField
               control={form.control}
               name="title"
@@ -105,6 +107,8 @@ export default function New() {
               )}
             />
 
+
+            {/* Short description of the recipe */}
             <FormField
               control={description.control}
               name="desc"
@@ -118,10 +122,11 @@ export default function New() {
 
                   <FormMessage />
                 </FormItem>
-
               )}
             />
 
+
+          {/* Recipe Detail */}
             <FormField
               control={detail.control}
               name="recipe"
